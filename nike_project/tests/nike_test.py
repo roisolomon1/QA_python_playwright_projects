@@ -248,6 +248,8 @@ class Test_Help():
         help_page = HelpPage(page)
         help_page.search_help("shoes")
         expect(page).to_have_url("https://www.nike.com/il/help/search/shoes")
-
+        page_search = page_after_search_item(page)
+        page_search.home_button()
+        expect(page).to_have_url("https://www.nike.com/il/")
 
 
