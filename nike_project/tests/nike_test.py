@@ -1,6 +1,7 @@
 from playwright.sync_api import expect
 from nike_project.globals import URL
 from nike_project.pages.golf_page import GolfPage
+from nike_project.pages.help_page import HelpPage
 from nike_project.pages.home_page import HomePage
 from nike_project.pages.page_after_search import page_after_search_item
 
@@ -11,7 +12,6 @@ from nike_project.pages.page_after_search import page_after_search_item
     # =====================
 
     # statements to show the more interesting tests , each show a different concept at least a bit different
-
 
 class Test_General():
 
@@ -237,6 +237,17 @@ class Test_Menu_Buttons():
 
         expect(page).to_have_url("https://www.nike.com/il/lockerroom")
 
+
+class Test_Help():
+
+    def test_help_search(self,setup_playwright):
+        page = setup_playwright
+        page.goto(URL)
+        home_page = HomePage(page)
+        home_page.help_button()
+        help_page = HelpPage(page)
+        help_page.search_help("shoes")
+        expect(page).to_have_url("https://www.nike.com/il/help/search/shoes")
 
 
 
