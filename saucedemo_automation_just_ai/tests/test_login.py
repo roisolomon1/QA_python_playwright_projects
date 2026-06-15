@@ -1,7 +1,7 @@
 import pytest
 from playwright.sync_api import expect
-from saucedemo_automation.pages.login_page import LoginPage
-from saucedemo_automation.globals import URL
+from saucedemo_automation_just_ai.pages.login_page import LoginPage
+from saucedemo_automation_just_ai.globals import URL
 
 def test_successful_login(page):
     page.goto(URL)
